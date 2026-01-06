@@ -13,6 +13,8 @@ sudo pacman -S chezmoi
 
 # 2. Repo klonen und anwenden
 chezmoi init --apply DEIN_GITHUB_USERNAME
+```
+
 
 ## 🛠 Workflow
 
@@ -27,6 +29,8 @@ cmd	            chezmoi diff	      Zeigt Unterschiede vor dem Apply an
 cmu	            chezmoi update	      Holt Updates von Git (Pull) und wendet sie an
 cm add <file>	chezmoi add <file>    Fügt eine neue Datei zum Tracking hinzu
 
+
+
 ## Git Sync (Backup)
 
 Um Änderungen zu sichern und auf GitHub zu pushen, nutze ich die custom function cmcp:
@@ -34,6 +38,9 @@ Um Änderungen zu sichern und auf GitHub zu pushen, nutze ich die custom functio
 ```fish
 cmcp "Beschreibung der Änderung"
 # Führt add, commit und push in einem Schritt aus
+```
+
+
 
 ## 📂 Struktur
 
@@ -42,6 +49,8 @@ cmcp "Beschreibung der Änderung"
     Editor: Neovim (als Standard gesetzt via Fish Config)
 
     Terminal: (Hier ggf. Kitty/Alacritty eintragen, falls genutzt)
+
+
 
 ##  💡 Notizen
 
