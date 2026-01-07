@@ -21,7 +21,8 @@ chezmoi init --apply DEIN_GITHUB_USERNAME
 Ich nutze fish Abbreviations und Funktionen, um den Workflow zu beschleunigen.
 
 Wichtige Befehle
-Befehl	        Original	          Beschreibung
+
+Befehl          Original              Beschreibung
 cm   	        chezmoi         	  Basisbefehl
 cme <file>	    chezmoi edit <file>	  Öffnet Datei im Source-State (Neovim)
 cma	            chezmoi apply	      Wendet Änderungen im Home-Verzeichnis an
