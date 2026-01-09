@@ -3,6 +3,11 @@
 Meine persönlichen Konfigurationsdateien, verwaltet mit [chezmoi](https://www.chezmoi.io/).
 Ausgelegt für **CachyOS (Arch)** mit **Fish Shell** und **Neovim**.
 
+## ⚠️ Voraussetzungen
+
+Diese Konfiguration ist spezifisch auf **CachyOS** zugeschnitten.
+Die `config.fish` lädt CachyOS-Standardkonfigurationen (`/usr/share/cachyos-fish-config/cachyos-config.fish`). Auf anderen Arch-Derivaten oder Distros muss diese Zeile angepasst werden.
+
 ## 🚀 Bootstrap (Installation auf neuem Rechner)
 
 Ein einziger Befehl reicht, um alles auf einem frischen System zu installieren:
@@ -12,6 +17,7 @@ Ein einziger Befehl reicht, um alles auf einem frischen System zu installieren:
 sudo pacman -S chezmoi
 
 # 2. Repo klonen und anwenden
+# Ersetze DEIN_GITHUB_USERNAME mit deinem tatsächlichen Usernamen
 chezmoi init --apply DEIN_GITHUB_USERNAME
 ```
 
