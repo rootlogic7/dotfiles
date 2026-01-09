@@ -1,12 +1,22 @@
 # CachyOS Dotfiles
 
 Meine persönlichen Konfigurationsdateien, verwaltet mit [chezmoi](https://www.chezmoi.io/).
-Ausgelegt für **CachyOS (Arch)** mit **Fish Shell** und **Neovim**.
 
-## ⚠️ Voraussetzungen
+## 🧩 Komponenten
 
-Diese Konfiguration ist spezifisch auf **CachyOS** zugeschnitten.
-Die `config.fish` lädt CachyOS-Standardkonfigurationen (`/usr/share/cachyos-fish-config/cachyos-config.fish`). Auf anderen Arch-Derivaten oder Distros muss diese Zeile angepasst werden.
+Diese Dotfiles sind modular aufgebaut. Der Kern basiert auf **CachyOS (Arch)**, lässt sich aber anpassen.
+
+| Kategorie | Programm | Beschreibung |
+| :--- | :--- | :--- |
+| **OS** | CachyOS (Arch) | Basis-System (optimiert für Performance) |
+| **Shell** | Fish | Inkl. Aliases und Custom Functions |
+| **Editor** | Neovim | Mein Haupt-Editor (LSP, Treesitter, etc.) |
+| **Window Manager** | Hyprland | *Tiling Window Manager (Wayland)* |
+| **Status Bar** | Waybar | *Leiste für Hyprland* |
+| **Terminal** | Alacritty / Kitty | *(Hier dein bevorzugtes Terminal eintragen)* |
+| **Launcher** | Rofi / Wofi | *App-Launcher & Menü* |
+
+> **Hinweis:** Nicht installierte Programme werden von `chezmoi` ignoriert oder können über `.chezmoiignore` ausgeschlossen werden.
 
 ## 🚀 Bootstrap (Installation auf neuem Rechner)
 
