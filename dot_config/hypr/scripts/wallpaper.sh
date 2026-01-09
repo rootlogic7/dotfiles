@@ -1,19 +1,18 @@
 #!/bin/bash
 
-# Pfad zu deinem Bild/GIF
-WALLPAPER="$HOME/.local/share/backgrounds/wallpaper.gif"
+# Pfad zu deinem Video
+VIDEO="$HOME/.local/share/backgrounds/wallpaper.mp4"
 
-# Prüfen, ob swww läuft, sonst starten
-if ! pgrep -x swww-daemon > /dev/null; then
-    swww-daemon &
-    sleep 1
-fi
+# Beende alte Wallpaper-Prozesse (swww oder alte mpvpaper Instanzen)
+killall mpvpaper
+killall swww-daemon
 
-# Das Wallpaper setzen mit Übergangseffekt (Wipe)
-# --transition-type: wipe, grow, outer, wave
-# --transition-pos: top-right (Startpunkt)
-swww img "$WALLPAPER" \
-    --transition-type grow \
-    --transition-pos 0.854,0.977 \
-    --transition-step 90 \
-    --transition-fps 60
+# --- MONITOR 1: Ultrawide (DP-1) ---
+# Zeigt das Video im Vollbild (Loop, kein Audio)
+# Durch "panscan=1.0" wird es gezoomt/beschnitten, falls das Seitenverhältnis nicht exakt passt
+mpvpaper -o "no-audio --loop-playlist shuffle --panscan=1.0" DP-1 "$VIDEO" &
+
+# --- MONITOR 2: Side Monitor (HDMI-A-1) ---
+# Hier wird das Video vermutlich stark beschnitten (Center Crop), da 21:9 Video auf 16:9 Monitor
+# Wir nutzen auch hier panscan, damit keine schwarzen Balken entstehen.
+mpvpaper -o "no-audio --loop-playlist shuffle --panscan=1.0" HDMI-A-1 "$VIDEO" &
