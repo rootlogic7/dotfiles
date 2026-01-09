@@ -34,19 +34,18 @@ chezmoi init --apply DEIN_GITHUB_USERNAME
 ```
 
 
-## 🛠 Workflow
+## 🛠 Workflow & Abkürzungen
 
-Ich nutze fish Abbreviations und Funktionen, um den Workflow zu beschleunigen.
+Ich nutze Fish Abbreviations, um den Umgang mit `chezmoi` zu beschleunigen.
 
-Wichtige Befehle
-
-Befehl          Original              Beschreibung
-cm   	        chezmoi         	  Basisbefehl
-cme <file>	    chezmoi edit <file>	  Öffnet Datei im Source-State (Neovim)
-cma	            chezmoi apply	      Wendet Änderungen im Home-Verzeichnis an
-cmd	            chezmoi diff	      Zeigt Unterschiede vor dem Apply an
-cmu	            chezmoi update	      Holt Updates von Git (Pull) und wendet sie an
-cm add <file>	chezmoi add <file>    Fügt eine neue Datei zum Tracking hinzu
+| Abkürzung | Original Befehl | Beschreibung |
+| :--- | :--- | :--- |
+| `cm` | `chezmoi` | Basisbefehl |
+| `cme <file>` | `chezmoi edit <file>` | Öffnet die Datei im Source-State (Neovim) |
+| `cma` | `chezmoi apply` | Wendet Änderungen im Home-Verzeichnis an |
+| `cmd` | `chezmoi diff` | Zeigt Unterschiede vor dem Apply an |
+| `cmu` | `chezmoi update` | Holt Updates von Git (Pull) und wendet sie an |
+| `cm add <file>` | `chezmoi add <file>` | Fügt eine neue Datei zum Tracking hinzu |
 
 
 
