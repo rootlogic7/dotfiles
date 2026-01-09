@@ -49,13 +49,14 @@ Ich nutze Fish Abbreviations, um den Umgang mit `chezmoi` zu beschleunigen.
 
 
 
-## Git Sync (Backup)
+## 🔄 Git Sync (Backup)
 
-Um Änderungen zu sichern und auf GitHub zu pushen, nutze ich die custom function cmcp:
+In der `config.fish` ist eine Custom Function `cmcp` definiert, um Änderungen schnell zu sichern. Sie führt `git add`, `git commit` und `git push` in einem Schritt aus.
+
+**Nutzung:**
 
 ```fish
 cmcp "Beschreibung der Änderung"
-# Führt add, commit und push in einem Schritt aus
 ```
 
 
