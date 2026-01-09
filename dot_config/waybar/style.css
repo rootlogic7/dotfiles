@@ -1,102 +1,72 @@
-@import "mocha.css";
+@import "tokyonight.css";
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
-  min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
 }
 
-#waybar {
-  background: transparent;
-  color: @text;
-  margin: 5px 5px;
+window#waybar {
+    background: rgba(36, 40, 59, 0.75); /* Tokyo Night mit Transparenz */
+    color: @foreground;
+    border-bottom: 2px solid @blue; /* Ein feiner blauer Strich unten */
 }
 
+/* Workspaces (Die "Bubbles") */
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+    background: transparent;
+    margin: 4px;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+    padding: 0 10px;
+    background: transparent;
+    color: @white;
+    border-radius: 10px;
 }
 
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+    color: @background;
+    background: linear-gradient(45deg, @blue, @magenta); /* Dein Gradient Theme */
+    border-radius: 10px;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+    background: @black;
+    color: @blue;
 }
 
-#custom-music,
-#tray,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+/* Module Styles */
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #custom-power, #custom-lock {
+    padding: 0 12px;
+    background: transparent;
+    color: @foreground;
+    margin: 0 4px;
 }
 
+/* Akzente für Module */
 #clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+    color: @blue;
 }
 
 #battery {
-  color: @green;
+    color: @green;
 }
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-    border-radius: 0;
-}
+#battery.warning { color: @yellow; }
+#battery.critical { color: @red; }
 
 #pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-
-#custom-music {
-  color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
+    color: @magenta;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
     color: @red;
+    font-size: 16px;
 }
 
 #tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+    background-color: @black;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
