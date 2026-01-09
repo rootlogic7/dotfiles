@@ -22,3 +22,11 @@ function cmcp
     chezmoi git -- commit -m "$argv"
     chezmoi git push
 end
+
+if status is-interactive
+    # Starship Prompt aktivieren (ersetzt den Standard Prompt)
+    starship init fish | source
+    
+    # Maskottchen beim Start anzeigen
+    fastfetch
+end

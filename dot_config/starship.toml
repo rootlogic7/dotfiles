@@ -1,0 +1,51 @@
+# Tokyo Night Preset
+format = """
+[](blue)\
+$os\
+$username\
+[](bg:magenta fg:blue)\
+$directory\
+[](fg:magenta bg:cyan)\
+$git_branch\
+$git_status\
+[](fg:cyan bg:black)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+[](fg:black)\
+"""
+
+[os]
+disabled = false
+style = "bg:blue fg:black"
+
+[os.symbols]
+Arch = " "
+Linux = " "
+
+[username]
+show_always = true
+style_user = "bg:blue fg:black"
+style_root = "bg:blue fg:black"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:magenta fg:black"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:cyan fg:black"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:cyan fg:black"
+format = '[$all_status$ahead_behind ]($style)'
+
+# ... weitere Sprachen kannst du bei Bedarf aktivieren
