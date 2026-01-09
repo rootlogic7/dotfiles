@@ -10,11 +10,12 @@ Diese Dotfiles sind modular aufgebaut. Der Kern basiert auf **CachyOS (Arch)**, 
 | :--- | :--- | :--- |
 | **OS** | CachyOS (Arch) | Basis-System (optimiert für Performance) |
 | **Shell** | Fish | Inkl. Aliases und Custom Functions |
-| **Editor** | Neovim | Mein Haupt-Editor (LSP, Treesitter, etc.) |
+| **Editor** | Neovim | Mein Haupt-Editor (Global als `EDITOR`/`VISUAL` gesetzt) |
 | **Window Manager** | Hyprland | *Tiling Window Manager (Wayland)* |
 | **Status Bar** | Waybar | *Leiste für Hyprland* |
-| **Terminal** | Alacritty / Kitty | *(Hier dein bevorzugtes Terminal eintragen)* |
-| **Launcher** | Rofi / Wofi | *App-Launcher & Menü* |
+| **Terminal** | Kitty | *GPU-beschleunigtes Terminal* |
+| **Launcher** | Wofi | *App-Launcher & Menü* |
+| **File Manager** | Yazi | *Terminal File Manager* |
 
 > **Hinweis:** Nicht installierte Programme werden von `chezmoi` ignoriert oder können über `.chezmoiignore` ausgeschlossen werden.
 ## 🚀 Bootstrap (Installation auf neuem Rechner)
