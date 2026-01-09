@@ -19,4 +19,6 @@ sudo pacman -S --needed \
     git \
     ripgrep \
     fd \
+    mpvpaper \
+    ffmpeg \
     ttf-jetbrains-mono-nerd
