@@ -17,17 +17,19 @@ Diese Dotfiles sind modular aufgebaut. Der Kern basiert auf **CachyOS (Arch)**, 
 | **Launcher** | Rofi / Wofi | *App-Launcher & Menü* |
 
 > **Hinweis:** Nicht installierte Programme werden von `chezmoi` ignoriert oder können über `.chezmoiignore` ausgeschlossen werden.
-
 ## 🚀 Bootstrap (Installation auf neuem Rechner)
 
-Ein einziger Befehl reicht, um alles auf einem frischen System zu installieren:
+Dieser Prozess installiert `chezmoi`, lädt die Configs herunter und **installiert automatisch fehlende Pakete** (wie Kitty, Yazi, Neovim) über ein Skript.
 
-```fish
+1.  **CachyOS installieren** und System updaten.
+2.  **Terminal öffnen** und folgenden Block ausführen:
+
+```bash
 # 1. Chezmoi installieren
 sudo pacman -S chezmoi
 
-# 2. Repo klonen und anwenden
-# Ersetze DEIN_GITHUB_USERNAME mit deinem tatsächlichen Usernamen
+# 2. Dotfiles initialisieren und anwenden
+# Dies fragt nach dem Sudo-Passwort, um Programme via pacman zu installieren
 chezmoi init --apply DEIN_GITHUB_USERNAME
 ```
 
