@@ -60,19 +60,27 @@ cmcp "Beschreibung der Änderung"
 ```
 
 
-
 ## 📂 Struktur
 
-    Shell: Fish (Config in .config/fish)
-
-    Editor: Neovim (als Standard gesetzt via Fish Config)
-
-    Terminal: (Hier ggf. Kitty/Alacritty eintragen, falls genutzt)
-
+* **Shell:** Fish (Konfiguration in `.config/fish`)
+* **Funktionen:** Eigene Fish-Funktionen liegen in `~/.config/fish/functions/` oder direkt in der `config.fish`.
+* **Skripte:** Installationsskripte (wie `run_once_...`) liegen im `chezmoi`-Source-Verzeichnis.
+* **Ignorierte Dateien:** Gesteuert über `.chezmoiignore`.
 
 
-##  💡 Notizen
 
-    Neue Programme hinzufügen: Erst konfigurieren, dann cm add ~/.config/program/configfile ausführen.
+## 💡 Tipps
 
-    Fish Functions: Eigene Funktionen (wie cmcp) liegen in ~/.config/fish/functions/ und werden via Autoload geladen.
+### Neue Programme hinzufügen
+1.  Programm installieren und lokal konfigurieren.
+2.  Config-Datei zu chezmoi hinzufügen:
+    ```fish
+    cm add ~/.config/program/configfile
+    ```
+3.  Falls gewünscht, das Paket in `run_once_install_packages.sh` ergänzen, damit es auf neuen Rechnern automatisch installiert wird.
+
+### Änderungen verwerfen
+Wenn du lokal etwas geändert hast, aber die Version aus dem Repo wiederherstellen willst:
+```fish
+chezmoi apply --force
+```
