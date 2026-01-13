@@ -45,7 +45,4 @@ else
 fi
 
 # 3. AUR Pakete installieren (mit yay)
-echo "📦 Installiere AUR Pakete (mpvpaper)..."
-yay -S --needed mpvpaper
-
 echo "🎉 Installation abgeschlossen!"
