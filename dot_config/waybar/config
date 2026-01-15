@@ -3,12 +3,27 @@
     "output": ["DP-1"],
     "layer": "top",
     "position": "top",
-    "height": 30
+    "height": 30,
+    "modules-center": ["hyprland/workspaces"],
+    "hyprland/workspaces": {
+             "format": "{icon}",
+             "persistent-workspaces": {
+                 "DP-1": [ 1, 2, 3, 4, 5 ]
+             }
+        }
 },
 {
     "name": "bar2",
     "output": ["HDMI-A-1"],
     "layer": "top",
     "position": "top",
-    "height": 30
+    "height": 30,
+    "modules-center": ["hyprland/workspaces"],
+    "hyprland/workspaces": {
+             "format": "{icon}",
+             // Workspaces 6-10 auf dem zweiten Monitor
+             "persistent-workspaces": {
+                 "HDMI-A-1": [ 6, 7, 8, 9, 10 ]
+             }
+        }
 }]
