@@ -1,9 +1,9 @@
 [{
-    "name": "bar1",
+    "name": "bar_DP1_1",
     "output": ["DP-1"],
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 34,
     "modules-center": ["hyprland/workspaces"],
     "hyprland/workspaces": {
              "format": "{icon}",
@@ -13,17 +13,30 @@
         }
 },
 {
-    "name": "bar2",
+    "name": "bar_DP1_2",
+    "output": ["DP-1"],
+    "layer": "top",
+    "position": "bottom",
+    "height": 20
+},
+{
+    "name": "bar_HDMIA1_1",
     "output": ["HDMI-A-1"],
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 34,
     "modules-center": ["hyprland/workspaces"],
     "hyprland/workspaces": {
-             "format": "{icon}",
-             // Workspaces 6-10 auf dem zweiten Monitor
-             "persistent-workspaces": {
-                 "HDMI-A-1": [ 6, 7, 8, 9, 10 ]
-             }
-        }
+        "format": "{icon}",
+            "persistent-workspaces": {
+                "HDMI-A-1": [ 6, 7, 8, 9, 10 ]
+            }
+    }
+},
+{
+    "name": "bar_HDMIA1_2",
+    "output": ["HDMI-A-1"],
+    "layer": "top",
+    "position": "bottom",
+    "height": 20
 }]

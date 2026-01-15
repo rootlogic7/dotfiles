@@ -1,6 +1,42 @@
-.bar1 {
-	background-color: rgba(100, 100, 100, 0.87);
-} 
-.bar2 {
-	background-color: rgba(255, 255, 255, 0.87);
-} 
+@import "mocha.css";
+
+* {
+	font-family: Jetbrains Mono Nerd;
+	color: @text
+}
+
+.bar_DP1_1
+{
+	background-color: @basealpha;
+}
+
+.bar_DP1_2
+{
+	background-color: @basealpha;
+}
+
+.bar_HDMIA1_1
+{
+	background-color: @basealpha;
+}
+
+.bar_HDMIA1_2
+{
+	background-color: @basealpha;
+}
+
+#workspaces button
+{
+	border: none;
+	margin: 2px;
+	background: transparent;
+	box-shadow: none;
+}
+
+#workspaces button.active {
+    background: @surface2;
+}
+
+#workspaces button.hovered {
+    background: @overlay0;
+}
