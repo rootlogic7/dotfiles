@@ -4,69 +4,35 @@
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
     font-size: 14px;
-    min-height: 0;
 }
 
 window#waybar {
-    background: rgba(36, 40, 59, 0.75); /* Tokyo Night mit Transparenz */
-    color: @foreground;
-    border-bottom: 2px solid @blue; /* Ein feiner blauer Strich unten */
+    background: rgba(36, 40, 59, 0.0); /* Komplett transparent, nur Module haben Farbe */
 }
 
-/* Workspaces (Die "Bubbles") */
-#workspaces {
-    background: transparent;
-    margin: 4px;
-}
-
-#workspaces button {
-    padding: 0 10px;
-    background: transparent;
-    color: @white;
-    border-radius: 10px;
-}
-
-#workspaces button.active {
-    color: @background;
-    background: linear-gradient(45deg, @blue, @magenta); /* Dein Gradient Theme */
-    border-radius: 10px;
-}
-
-#workspaces button:hover {
-    background: @black;
-    color: @blue;
-}
-
-/* Module Styles */
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #custom-power, #custom-lock {
-    padding: 0 12px;
-    background: transparent;
-    color: @foreground;
-    margin: 0 4px;
-}
-
-/* Akzente für Module */
-#clock {
-    color: @blue;
-}
-
-#battery {
-    color: @green;
-}
-#battery.warning { color: @yellow; }
-#battery.critical { color: @red; }
-
-#pulseaudio {
-    color: @magenta;
-}
-
-#custom-power {
-    color: @red;
-    font-size: 16px;
-}
-
-#tray {
-    background-color: @black;
-    border-radius: 10px;
+/* Modul-Gruppen Styles (Die "Pills") */
+#workspaces, #clock, #group-hardware, #group-audio, #group-power {
+    background: rgba(36, 40, 59, 0.9);
+    border: 2px solid @blue;
+    border-radius: 15px; /* Runder */
     padding: 5px 10px;
+    margin: 5px 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Entferne Hintergrund von einzelnen Modulen innerhalb einer Gruppe */
+#cpu, #memory, #temperature, #battery, #custom-power {
+    background: transparent;
+    padding: 0 8px;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* Workspaces active styling verbessern */
+#workspaces button.active {
+    background: @blue;
+    color: #1a1b26; /* Dunkler Text für Kontrast */
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
