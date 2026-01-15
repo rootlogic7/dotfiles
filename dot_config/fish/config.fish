@@ -26,7 +26,7 @@ end
 if status is-interactive
     # Starship Prompt aktivieren (ersetzt den Standard Prompt)
     starship init fish | source
-    
+    zoxide init fish | source
     # Maskottchen beim Start anzeigen
     fastfetch
 end

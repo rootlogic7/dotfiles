@@ -8,6 +8,8 @@ sudo pacman -S --needed \
     git \
     base-devel \
     fish \
+    zoxide \
+    cliphist \
     neovim \
     kitty \
     rofi-wayland \
