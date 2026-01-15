@@ -1,38 +1,6 @@
-@import "tokyonight.css";
-
-* {
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 14px;
-}
-
-window#waybar {
-    background: rgba(36, 40, 59, 0.0); /* Komplett transparent, nur Module haben Farbe */
-}
-
-/* Modul-Gruppen Styles (Die "Pills") */
-#workspaces, #clock, #group-hardware, #group-audio, #group-power {
-    background: rgba(36, 40, 59, 0.9);
-    border: 2px solid @blue;
-    border-radius: 15px; /* Runder */
-    padding: 5px 10px;
-    margin: 5px 5px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-/* Entferne Hintergrund von einzelnen Modulen innerhalb einer Gruppe */
-#cpu, #memory, #temperature, #battery, #custom-power {
-    background: transparent;
-    padding: 0 8px;
-    margin: 0;
-    border: none;
-    box-shadow: none;
-}
-
-/* Workspaces active styling verbessern */
-#workspaces button.active {
-    background: @blue;
-    color: #1a1b26; /* Dunkler Text für Kontrast */
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
+.bar1 {
+	background-color: rgba(10, 9, 10, 0.87);
+} 
+.bar2 {
+	background-color: rgba(10, 25, 10, 0.5);
+} 
