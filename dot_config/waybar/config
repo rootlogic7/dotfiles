@@ -1,12 +1,14 @@
-{
+[{
     "name": "bar1",
     "output": ["DP-1"],
     "layer": "top",
+    "position": "top",
     "height": 30
 },
 {
     "name": "bar2",
     "output": ["HDMI-A-1"],
     "layer": "top",
+    "position": "top",
     "height": 30
-}
+}]
