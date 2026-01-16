@@ -36,6 +36,7 @@ inputbar {
     border-radius: 8px;
     padding: 10px;
     margin: 0 0 20px 0;
+    text-color: @accent;
 }
 
 prompt {
@@ -46,6 +47,9 @@ prompt {
 entry {
     placeholder: "Suche...";
     placeholder-color: #585b70; /* Surface2 */
+    text-color: #f5e0dc;
+    cursor-color: #f5e0dc;
+    cursor-width: 2px;
 }
 
 listview {

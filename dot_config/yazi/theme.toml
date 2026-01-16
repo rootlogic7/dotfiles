@@ -1,41 +1,37 @@
-# Catppuccin Mocha (Rosewater Accent)
+# Catppuccin Mocha Custom Override
 
 [manager]
-cwd = { fg = "#f5e0dc" } # Rosewater
+# Setzt das aktuelle Verzeichnis (cwd) oben fett in Rosewater
+cwd = { fg = "#f5e0dc", bold = true }
 
-# Hovered: Rosewater Hintergrund, dunkler Text
+# Wenn du mit der Maus über Dateien fährst
 hovered         = { fg = "#1e1e2e", bg = "#f5e0dc" }
 preview_hovered = { underline = true }
 
-# Find / Search
+# Dateilisten-Farben (Marker etc.)
 find_keyword  = { fg = "#f9e2af", italic = true }
 find_position = { fg = "#f5c2e7", bg = "reset", italic = true }
-
-# Markers
 marker_selected = { fg = "#a6e3a1", bg = "reset" }
 marker_copied   = { fg = "#f9e2af", bg = "reset" }
 marker_cut      = { fg = "#f38ba8", bg = "reset" }
 
+# Der Rand um die Spalten - das sollte SOFORT auffallen
 [status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#313244", bg = "#313244" }
+separator_open  = ""
+separator_close = ""
+# Rosewater Statusbar
+mode_normal = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true }
+mode_select = { fg = "#1e1e2e", bg = "#cba6f7", bold = true }
+mode_unset  = { fg = "#1e1e2e", bg = "#f38ba8", bold = true }
 
-# Mode Colors
-mode_normal = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true } # Rosewater
-mode_select = { fg = "#1e1e2e", bg = "#cba6f7", bold = true } # Mauve
-mode_unset  = { fg = "#1e1e2e", bg = "#f38ba8", bold = true } # Red
-
+# Input Dialoge (Umbenennen etc.)
 [input]
 border   = { fg = "#f5e0dc" }
-title    = {}
+title    = { fg = "#f5e0dc" }
 value    = { fg = "#cdd6f4" }
-selected = { bg = "#f5e0dc" }
+selected = { bg = "#f5e0dc", fg = "#1e1e2e" }
 
+# Auswahlrahmen
 [select]
 border   = { fg = "#f5e0dc" }
 active   = { fg = "#f5c2e7" }
-inactive = { fg = "#cdd6f4" }
-
-[completion]
-border   = { fg = "#f5e0dc" }
