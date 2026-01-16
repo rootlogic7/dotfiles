@@ -5,9 +5,9 @@ set -gx VISUAL nvim
 
 # overwrite greeting
 # potentially disabling fastfetch
-#function fish_greeting
+function fish_greeting
 #    # smth smth
-#end
+end
 
 # Chezmoi Abkürzungen
 abbr --add cm 'chezmoi'
