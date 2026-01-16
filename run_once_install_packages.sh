@@ -27,7 +27,9 @@ sudo pacman -S --needed \
     ripgrep \
     fd \
     ffmpeg \
-    ttf-jetbrains-mono-nerd
+    ttf-jetbrains-mono-nerd \
+    lua51 \
+    unzip
 
 # 2. Automatische Installation von YAY (falls nicht vorhanden)
 if ! command -v yay &> /dev/null; then
