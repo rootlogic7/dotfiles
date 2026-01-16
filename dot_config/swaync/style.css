@@ -1,0 +1,81 @@
+/* Catppuccin Mocha & Rosewater */
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: #313244; /* Surface0 */
+}
+
+.notification-row {
+  outline: none;
+  margin: 10px;
+  padding: 0;
+}
+
+.notification {
+  background: transparent;
+  padding: 0;
+  margin: 0px;
+}
+
+.notification-content {
+  background: #1e1e2e; /* Base */
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #f5e0dc; /* Rosewater Border */
+  margin: 0;
+}
+
+.notification-default-action {
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.close-button {
+  background: #f38ba8; /* Red */
+  color: #1e1e2e;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: #eba0ac; /* Maroon */
+  transition: all .2s ease-in-out;
+}
+
+.notification-action {
+  border: 2px solid #f5e0dc; /* Rosewater */
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.body-image {
+  margin-top: 6px;
+  background-color: #cdd6f4; /* Text */
+  border-radius: 10px;
+}
+
+.summary {
+  font-size: 16px;
+  font-weight: 700;
+  background: transparent;
+  color: #f5e0dc; /* Rosewater Title */
+  text-shadow: none;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent;
+  color: #cdd6f4; /* Text */
+  text-shadow: none;
+}

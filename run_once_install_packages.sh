@@ -29,7 +29,8 @@ sudo pacman -S --needed \
     ffmpeg \
     ttf-jetbrains-mono-nerd \
     lua51 \
-    unzip
+    unzip \
+    python-pynvim
 
 # 2. Automatische Installation von YAY (falls nicht vorhanden)
 if ! command -v yay &> /dev/null; then

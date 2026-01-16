@@ -6,12 +6,12 @@ configuration {
     font: "JetBrainsMono Nerd Font 12";
 }
 
-/* Tokyo Night Colors */
+/* Catppuccin Mocha Palette (Rosewater Accent) */
 * {
-    bg: #24283b;
-    fg: #c0caf5;
-    accent: #7aa2f7; /* Blue */
-    bg-alt: #414868;
+    bg: #1e1e2e;         /* Base */
+    fg: #cdd6f4;         /* Text */
+    accent: #f5e0dc;     /* Rosewater (Dein Akzent) */
+    bg-alt: #313244;     /* Surface0 */
     
     background-color: transparent;
     text-color: @fg;
@@ -21,7 +21,8 @@ configuration {
 }
 
 window {
-    background-color: rgba(36, 40, 59, 0.85); /* Semi-Transparent */
+    /* Base Color mit 85% Transparenz */
+    background-color: rgba(30, 30, 46, 0.85);
     border: 2px;
     border-color: @accent;
     border-radius: 10px;
@@ -43,8 +44,8 @@ prompt {
 }
 
 entry {
-    placeholder: "Search...";
-    placeholder-color: #565f89;
+    placeholder: "Suche...";
+    placeholder-color: #585b70; /* Surface2 */
 }
 
 listview {
@@ -59,7 +60,7 @@ element {
 
 element selected {
     background-color: @accent;
-    text-color: #1a1b26; /* Dunkler Text auf hellem Grund */
+    text-color: #1e1e2e; /* Dunkler Text auf Rosewater */
 }
 
 element-icon {
