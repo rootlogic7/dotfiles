@@ -30,7 +30,10 @@ sudo pacman -S --needed \
     ttf-jetbrains-mono-nerd \
     lua51 \
     unzip \
-    python-pynvim
+    python-pynvim \
+    qt6-svg \
+    qt6-declarative \
+    qt5-quickcontrols2
 
 # 2. Automatische Installation von YAY (falls nicht vorhanden)
 if ! command -v yay &> /dev/null; then
