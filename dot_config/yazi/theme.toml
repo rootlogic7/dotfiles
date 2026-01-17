@@ -1,37 +1,72 @@
-# Catppuccin Mocha Custom Override
+[flavor]
+dark = "catppuccin-mocha"
 
 [manager]
-# Setzt das aktuelle Verzeichnis (cwd) oben fett in Rosewater
-cwd = { fg = "#f5e0dc", bold = true }
+cwd = { fg = "#f5e0dc", bold = true } # Rosewater
 
-# Wenn du mit der Maus über Dateien fährst
-hovered         = { fg = "#1e1e2e", bg = "#f5e0dc" }
+# Hover (Auswahl)
+hovered         = { fg = "#1e1e2e", bg = "#f5e0dc" } # Dunkler Text auf Rosewater
 preview_hovered = { underline = true }
 
-# Dateilisten-Farben (Marker etc.)
-find_keyword  = { fg = "#f9e2af", italic = true }
-find_position = { fg = "#f5c2e7", bg = "reset", italic = true }
-marker_selected = { fg = "#a6e3a1", bg = "reset" }
-marker_copied   = { fg = "#f9e2af", bg = "reset" }
-marker_cut      = { fg = "#f38ba8", bg = "reset" }
+# Suche & Marker
+find_keyword  = { fg = "#f9e2af", italic = true } # Yellow
+find_position = { fg = "#f5c2e7", bg = "reset", italic = true } # Pink
+marker_selected = { fg = "#a6e3a1", bg = "reset" } # Green
+marker_copied   = { fg = "#f9e2af", bg = "reset" } # Yellow
+marker_cut      = { fg = "#f38ba8", bg = "reset" } # Red
 
-# Der Rand um die Spalten - das sollte SOFORT auffallen
+# Tab-Reiter (oben)
+tab_active   = { fg = "#1e1e2e", bg = "#f5e0dc" }
+tab_inactive = { fg = "#cdd6f4", bg = "#313244" }
+tab_width    = 1
+
+# Statusleiste (unten)
 [status]
 separator_open  = ""
 separator_close = ""
-# Rosewater Statusbar
-mode_normal = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true }
-mode_select = { fg = "#1e1e2e", bg = "#cba6f7", bold = true }
-mode_unset  = { fg = "#1e1e2e", bg = "#f38ba8", bold = true }
+separator_style = { fg = "#313244", bg = "#313244" }
 
-# Input Dialoge (Umbenennen etc.)
+# Modi Farben
+mode_normal = { fg = "#1e1e2e", bg = "#f5e0dc", bold = true } # Rosewater
+mode_select = { fg = "#1e1e2e", bg = "#cba6f7", bold = true } # Mauve
+mode_unset  = { fg = "#1e1e2e", bg = "#f38ba8", bold = true } # Red
+
+# Dateitypen-Farben (Icons/Namen)
+[filetype]
+rules = [
+	{ mime = "image/*", fg = "#f9e2af" },
+	{ mime = "video/*", fg = "#f5c2e7" },
+	{ mime = "audio/*", fg = "#f5c2e7" },
+	{ mime = "archive/*", fg = "#f5c2e7" },
+	{ name = "*", fg = "#cdd6f4" }
+]
+
 [input]
 border   = { fg = "#f5e0dc" }
 title    = { fg = "#f5e0dc" }
 value    = { fg = "#cdd6f4" }
 selected = { bg = "#f5e0dc", fg = "#1e1e2e" }
 
-# Auswahlrahmen
 [select]
 border   = { fg = "#f5e0dc" }
 active   = { fg = "#f5c2e7" }
+inactive = { fg = "#cdd6f4" }
+
+[completion]
+border   = { fg = "#f5e0dc" }
+active   = { bg = "#f5e0dc", fg = "#1e1e2e" }
+inactive = { fg = "#cdd6f4" }
+
+[tasks]
+border  = { fg = "#f5e0dc" }
+title   = { fg = "#f5e0dc" }
+hovered = { fg = "#f5e0dc", underline = true }
+
+[which]
+cols            = 3
+mask            = { bg = "#313244" }
+cand            = { fg = "#94e2d5" }
+rest            = { fg = "#9399b2" }
+desc            = { fg = "#f5c2e7" }
+separator       = "  "
+separator_style = { fg = "#585b70" }
