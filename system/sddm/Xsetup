@@ -1,0 +1,10 @@
+#!/bin/sh
+# Xsetup - SDDM Display Configuration
+# Namen laut Log: DP-0 (Ultrawide), HDMI-0 (Secondary)
+
+if command -v xrandr > /dev/null; then
+    # 1. Kleinen Monitor ausschalten (HDMI-0)
+    # 2. Ultrawide (DP-0) auf 100Hz und Primary setzen
+    xrandr --output HDMI-0 --off \
+           --output DP-0 --mode 3440x1440 --rate 100.00 --primary
+fi

@@ -1,26 +1,68 @@
 #!/bin/bash
 
-# Pfade definieren
-# {{ .chezmoi.sourceDir }} wird von chezmoi automatisch durch den richtigen Pfad ersetzt
-SOURCE_FILE="{{ .chezmoi.sourceDir }}/system/sddm/theme.conf"
-DEST_DIR="/etc/sddm.conf.d"
-DEST_FILE="$DEST_DIR/theme.conf"
+# --- PFADE DEFINIEREN ---
+SOURCE_DIR="{{ .chezmoi.sourceDir }}/system/sddm"
 
-# HASH-TRICK:
-# Wir fügen den Hash der Config-Datei als Kommentar ein.
-# Ändert sich die Config, ändert sich der Hash -> Skript läuft erneut.
-# theme.conf hash: {{ include "system/sddm/theme.conf" | sha256sum }}
+# 1. SDDM Haupt-Konfiguration
+SDDM_CONF_DIR="/etc/sddm.conf.d"
+SDDM_CONF_FILE="$SDDM_CONF_DIR/theme.conf"
 
-echo "⚙️  Konfiguriere SDDM Theme..."
+# 2. Xsetup (Monitor-Einstellungen)
+XSETUP_DIR="/usr/share/sddm/scripts"
+XSETUP_FILE="$XSETUP_DIR/Xsetup"
 
-# 1. Zielordner erstellen, falls nicht vorhanden
-if [ ! -d "$DEST_DIR" ]; then
-    echo "Ordner $DEST_DIR wird erstellt..."
-    sudo mkdir -p "$DEST_DIR"
+# 3. Theme Pfade
+THEME_DIR="/usr/share/sddm/themes/catppuccin-mocha-rosewater"
+THEME_CONF_FILE="$THEME_DIR/theme.conf"
+
+# 4. Custom Wallpaper
+# Das Bild muss in ~/.local/share/chezmoi/system/sddm/wallpaper.png liegen
+WALLPAPER_SOURCE="$SOURCE_DIR/wallpaper.png"
+# Wir speichern es im 'backgrounds' Unterordner des Themes
+WALLPAPER_DEST="$THEME_DIR/backgrounds/custom.png"
+
+# --- HASHES (Damit das Skript bei Änderungen läuft) ---
+# sddm.conf hash: {{ include "system/sddm/theme.conf" | sha256sum }}
+# Xsetup hash:    {{ include "system/sddm/Xsetup" | sha256sum }}
+# Theme conf hash: {{ include "system/sddm/theme_custom.conf" | sha256sum }}
+# Wallpaper hash:  {{ include "system/sddm/wallpaper.png" | sha256sum }}
+
+echo "⚙️  Konfiguriere SDDM (Monitore, Theme & Wallpaper)..."
+
+# --- SCHRITT A: Haupt-Config (/etc/sddm.conf.d/theme.conf) ---
+if [ ! -d "$SDDM_CONF_DIR" ]; then
+    echo "Ordner $SDDM_CONF_DIR wird erstellt..."
+    sudo mkdir -p "$SDDM_CONF_DIR"
+fi
+sudo install -m 644 "$SOURCE_DIR/theme.conf" "$SDDM_CONF_FILE"
+echo "✅ SDDM Theme Auswahl gesetzt."
+
+# --- SCHRITT B: Monitor Setup (Xsetup) ---
+if ! command -v xrandr &> /dev/null; then
+    echo "⚠️  xrandr fehlt! Installiere xorg-xrandr..."
+    sudo pacman -S --noconfirm xorg-xrandr
+fi
+if [ ! -d "$XSETUP_DIR" ]; then
+    sudo mkdir -p "$XSETUP_DIR"
+fi
+sudo install -m 755 "$SOURCE_DIR/Xsetup" "$XSETUP_FILE"
+echo "✅ Xsetup Monitor-Skript installiert."
+
+# --- SCHRITT C: Theme Customization ---
+if [ -d "$THEME_DIR" ]; then
+    sudo install -m 644 "$SOURCE_DIR/theme_custom.conf" "$THEME_CONF_FILE"
+    echo "✅ Theme-Config angewendet."
+else
+    echo "⚠️  Warnung: Theme-Ordner nicht gefunden ($THEME_DIR)."
 fi
 
-# 2. Datei kopieren
-# Wir nutzen 'install', das ist sauberer als cp (setzt Rechte gleich richtig)
-sudo install -m 644 "$SOURCE_FILE" "$DEST_FILE"
-
-echo "✅ SDDM Config aktiviert: $DEST_FILE"
+# --- SCHRITT D: Wallpaper kopieren (Neu) ---
+if [ -f "$WALLPAPER_SOURCE" ] && [ -d "$THEME_DIR" ]; then
+    # Sicherstellen, dass der backgrounds Ordner existiert
+    sudo mkdir -p "$THEME_DIR/backgrounds"
+    
+    sudo install -m 644 "$WALLPAPER_SOURCE" "$WALLPAPER_DEST"
+    echo "✅ Custom Wallpaper kopiert nach: $WALLPAPER_DEST"
+else
+    echo "ℹ️  Kein Custom Wallpaper gefunden (oder Theme fehlt)."
+fi
