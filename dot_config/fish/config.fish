@@ -9,6 +9,9 @@ function fish_greeting
 #    # smth smth
 end
 
+# SSH Key
+set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Chezmoi Abkürzungen
 abbr --add cm 'chezmoi'
 abbr --add cma 'chezmoi apply'
