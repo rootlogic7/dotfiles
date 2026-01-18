@@ -24,10 +24,6 @@ function cmcp
 end
 
 if status is-interactive
-    # --- SSH Agent starten ---
-    # Startet den Agenten und lädt Key (id_ed25519)
-    # --quiet: Unterdrückt unnötige Ausgaben
-    eval (keychain --eval --quiet --agents ssh id_ed25519)
     # Starship Prompt
     starship init fish | source
     # Zoxide
