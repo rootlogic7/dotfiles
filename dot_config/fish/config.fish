@@ -8,10 +8,6 @@ set -gx VISUAL nvim
 function fish_greeting
 #    # smth smth
 end
-
-# SSH Key
-set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-
 # Chezmoi Abkürzungen
 abbr --add cm 'chezmoi'
 abbr --add cma 'chezmoi apply'
@@ -27,6 +23,8 @@ function cmcp
 end
 
 if status is-interactive
+    # Systemd SSH Agent Socket nutzen
+    set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
     # Starship Prompt
     starship init fish | source
     # Zoxide
