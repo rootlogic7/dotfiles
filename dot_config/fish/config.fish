@@ -13,10 +13,10 @@ end
 abbr --add cm 'chezmoi'
 abbr --add cma 'chezmoi apply'
 abbr --add cme 'chezmoi edit'
-abbr --add cmd 'chezmoi diff'  # Zeigt dir, was sich geändert hat, bevor du apply machst
-abbr --add cmu 'chezmoi update' # Holt Änderungen von Git und wendet sie an (pull + apply)
+abbr --add cmd 'chezmoi diff'
+abbr --add cmu 'chezmoi update'
 
-# Git Workflow für Chezmoi (optional, geht auch manuell)
+# Git Workflow für Chezmoi
 function cmcp
     chezmoi git add .
     chezmoi git -- commit -m "$argv"
@@ -24,9 +24,14 @@ function cmcp
 end
 
 if status is-interactive
-    # Starship Prompt aktivieren (ersetzt den Standard Prompt)
+    # --- SSH Agent starten ---
+    # Startet den Agenten und lädt Key (id_ed25519)
+    # --quiet: Unterdrückt unnötige Ausgaben
+    eval (keychain --eval --quiet --agents ssh id_ed25519)
+    # Starship Prompt
     starship init fish | source
+    # Zoxide
     zoxide init fish | source
-    # Maskottchen beim Start anzeigen
+    # Fastfetch
     fastfetch
 end
