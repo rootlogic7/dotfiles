@@ -27,6 +27,7 @@ sudo pacman -S --needed \
     ripgrep \
     fd \
     ffmpeg \
+    resvg \
     ttf-jetbrains-mono-nerd \
     lua51 \
     unzip \
