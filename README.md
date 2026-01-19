@@ -7,6 +7,15 @@
 Meine persönliche Systemkonfiguration für **CachyOS (Arch Linux)**.
 Dieses Repository wird mit [chezmoi](https://www.chezmoi.io/) verwaltet und ist darauf ausgelegt, eine konsistente, ästhetische und performante Umgebung auf verschiedenen Gerätetypen bereitzustellen – vom High-End Desktop mit Nvidia-Grafikkarte über Laptops.
 
+## 🎨 Visuals & Theme
+
+Das gesamte System ist einheitlich im **Catppuccin Mocha** Farbschema gehalten, mit **Rosewater** als Akzentfarbe. Dies zieht sich durch alle Anwendungen (GTK, QT, Neovim, Terminal).
+
+![Theme](https://img.shields.io/badge/Theme-Catppuccin_Mocha-1e1e2e?style=for-the-badge&logo=catppuccin&logoColor=f5e0dc)
+![Accent](https://img.shields.io/badge/Accent-Rosewater-f5e0dc?style=for-the-badge&labelColor=1e1e2e&color=f5e0dc)
+![Icons](https://img.shields.io/badge/Icons-Papirus-1e1e2e?style=for-the-badge&logo=papirus&logoColor=f5e0dc)
+![Cursor](https://img.shields.io/badge/Cursor-Bibata_Modern_Ice-1e1e2e?style=for-the-badge&logo=gnu&logoColor=f5e0dc)
+
 Der Fokus liegt auf **Hyprland** als Window Manager, gepaart mit einem modernen Tooling-Stack (Fish, Neovim, Kitty) und einem einheitlichen Look (Tokyo Night / Catppuccin).
 
 ## 🧩 Komponenten
