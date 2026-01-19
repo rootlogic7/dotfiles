@@ -9,17 +9,23 @@
         "orientation": "horizontal",
         "modules": [
             "cpu",
-            "memory"
+            "memory",
+            "network"
         ]
     },
     "cpu": {
         "interval": 10,
-        "format": "   {usage} %",
+        "format": "   {usage} % |",
         "max-length": 10
     },
     "memory": {
         "interval": 30,
-        "format": "  {} %",
+        "format": "  {} % |",
         "max-length": 10
+    },
+    "network": { 
+        "interval": 2,
+        "interface": "enp4s0",
+        "format": "  {bandwidthUpBytes}      {bandwidthDownBytes}"
     }
 }

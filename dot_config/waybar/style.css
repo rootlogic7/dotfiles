@@ -2,79 +2,95 @@
 
 * {
     font-family: Jetbrains Mono Nerd;
+    font-size: 12px;
     color: @rosewater;
 }
 
 /* --- MONITOR 1 (DP-1) --- */
 .bar_DP1_1 {
     background-color: @basealpha;
+
 	border-bottom: 2px solid @crust;
 }
 
 .bar_DP1_2 {   
     background-color: @basealpha;
+
 	border-top: 2px solid @crust;
 }
 
 /* --- MONITOR 2 (HDMI-A-1) --- */
 .bar_HDMIA1_1 {
 	background-color: @basealpha;
+
     border-bottom: 2px solid @crust;
 }
 
 .bar_HDMIA1_2 {
     background-color: @basealpha;
+
 	border-top: 2px solid @crust;
 }
 
 /* --- GLOBALE ELEMENTE (Standard für Scale 1.0) --- */
 #workspaces {
 	background: @surface1;
+
     border: 2px solid @mantle;
     border-radius: 9px;
-    padding: 3px;
-    margin-top: 6px;
+
+    padding-bottom: 1px;
+    padding-right: 3px;
+    padding-left: 3px;
+
+    margin-top: 3px;
     margin-bottom: 6px;
+
 	box-shadow: none;
 }
 #workspaces button {
-    font-size: 14px;
     font-weight: normal;
+
 	background: transparent;
+
 	box-shadow: none;
 }
 
 #workspaces button.active {
-    font-size: 14px;
     font-weight: bold;
 }
 
 #clock {
-	font-size: 14px;
+
 	background: @surface1;
+
     border: 2px solid @mantle;
     border-radius: 9px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-right: 12px;
-    padding-left: 12px;
-    margin-top: 6px;
+
+    padding-bottom: 1px;
+    padding-right: 3px;
+    padding-left: 3px;
+
+    margin-top: 3px;
     margin-bottom: 6px;
     margin-right: 12px;
+
 	box-shadow: none;
 }
 #hardware {
-	font-size: 14px;
 	background: @surface1;
+
     border: 2px solid @mantle;
     border-radius: 9px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+
+    padding-bottom: 1px;
     padding-right: 12px;
     padding-left: 12px;
-    margin-top: 6px;
+
+    margin-top: 3px;
     margin-bottom: 6px;
     margin-left: 12px;
+
 	box-shadow: none;
     
 }
@@ -82,6 +98,9 @@
     margin-left: 12px;
 }
 #memory {
+    margin-left: 24px;
+}
+#network {
     margin-left: 24px;
 }
 
