@@ -1,20 +1,29 @@
-# 🚀 CachyOS Hyprland Dotfiles
+<div align="center">
 
-![CachyOS](https://img.shields.io/badge/CachyOS-0D1117?style=for-the-badge&logo=archlinux&logoColor=2CA5E0)
-![Hyprland](https://img.shields.io/badge/Hyprland-0D1117?style=for-the-badge&logo=hyprland&logoColor=2CA5E0)
-![Chezmoi](https://img.shields.io/badge/Managed%20with-Chezmoi-0D1117?style=for-the-badge&logo=chezmoi&logoColor=white)
+# 🍧 Dotfiles
 
-Meine persönliche Systemkonfiguration für **CachyOS (Arch Linux)**.
-Dieses Repository wird mit [chezmoi](https://www.chezmoi.io/) verwaltet und ist darauf ausgelegt, eine konsistente, ästhetische und performante Umgebung auf verschiedenen Gerätetypen bereitzustellen – vom High-End Desktop mit Nvidia-Grafikkarte über Laptops.
+**Performance meets Aesthetics**
+<br>
+Eine hochoptimierte Konfiguration für **CachyOS**, verwaltet mit **chezmoi**.
 
-## 🎨 Visuals & Theme
-
-Das gesamte System ist einheitlich im **Catppuccin Mocha** Farbschema gehalten, mit **Rosewater** als Akzentfarbe. Dies zieht sich durch alle Anwendungen (GTK, QT, Neovim, Terminal).
-
+![CachyOS](https://img.shields.io/badge/OS-CachyOS-1e1e2e?style=for-the-badge&logo=archlinux&logoColor=f5e0dc)
+![Hyprland](https://img.shields.io/badge/WM-Hyprland-1e1e2e?style=for-the-badge&logo=hyprland&logoColor=f5e0dc)
 ![Theme](https://img.shields.io/badge/Theme-Catppuccin_Mocha-1e1e2e?style=for-the-badge&logo=catppuccin&logoColor=f5e0dc)
-![Accent](https://img.shields.io/badge/Accent-Rosewater-f5e0dc?style=for-the-badge&labelColor=1e1e2e&color=f5e0dc)
-![Icons](https://img.shields.io/badge/Icons-Papirus-1e1e2e?style=for-the-badge&logo=papirus&logoColor=f5e0dc)
-![Cursor](https://img.shields.io/badge/Cursor-Bibata_Modern_Ice-1e1e2e?style=for-the-badge&logo=gnu&logoColor=f5e0dc)
+
+</div>
+
+---
+
+### 🚀 Über dieses Setup
+
+Dieses Repository enthält meine persönliche Systemkonfiguration ("Dotfiles"). Der Fokus liegt auf maximaler Performance, einheitlichem Design und **Geräteunabhängigkeit**.
+
+Das System ist so aufgebaut, dass es sich dynamisch an die Hardware anpasst – egal ob **Gaming-Desktop** (Nvidia), **Laptop** (Intel/AMD) oder **Raspberry Pi**.
+
+**Die Kern-Philosophie:**
+* **Speed:** Nutzung von CachyOS-Kernel-Optimierungen und Hyprland.
+* **Look:** Durchgängiges **Catppuccin Mocha** Theme mit **Rosewater** Akzenten.
+* **Code:** Shell-Scripting mit Fish, Editing mit Neovim, Terminal mit Kitty.
 
 Der Fokus liegt auf **Hyprland** als Window Manager, gepaart mit einem modernen Tooling-Stack (Fish, Neovim, Kitty) und einem einheitlichen Look (Tokyo Night / Catppuccin).
 
