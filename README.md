@@ -25,22 +25,22 @@ Das System ist so aufgebaut, dass es sich dynamisch an die Hardware anpasst – 
 * **Look:** Durchgängiges **Catppuccin Mocha** Theme mit **Rosewater** Akzenten.
 * **Code:** Shell-Scripting mit Fish, Editing mit Neovim, Terminal mit Kitty.
 
-Der Fokus liegt auf **Hyprland** als Window Manager, gepaart mit einem modernen Tooling-Stack (Fish, Neovim, Kitty) und einem einheitlichen Look (Tokyo Night / Catppuccin).
+## 🛠 Tech Stack
 
-## 🧩 Komponenten
+Hier ist eine Übersicht der Kern-Komponenten, die durch dieses Setup konfiguriert werden:
 
-Diese Dotfiles sind modular aufgebaut. Der Kern basiert auf **CachyOS (Arch)**, lässt sich aber anpassen.
-
-| Kategorie | Programm | Beschreibung |
+| Kategorie | Tool | Beschreibung & Features |
 | :--- | :--- | :--- |
-| **OS** | CachyOS (Arch) | Basis-System (optimiert für Performance) |
-| **Shell** | Fish | Inkl. Aliases und Custom Functions |
-| **Editor** | Neovim | Mein Haupt-Editor (Global als `EDITOR`/`VISUAL` gesetzt) |
-| **Window Manager** | Hyprland | *Tiling Window Manager (Wayland)* |
-| **Status Bar** | Waybar | *Leiste für Hyprland* |
-| **Terminal** | Kitty | *GPU-beschleunigtes Terminal* |
-| **Launcher** | Wofi | *App-Launcher & Menü* |
-| **File Manager** | Yazi | *Terminal File Manager* |
+| **Window Manager** | [Hyprland](https://hyprland.org/) | Tiling WM mit flüssigen Animationen und Blur-Effekten. |
+| **Status Bar** | [Waybar](https://github.com/Alexays/Waybar) | Dynamische Leiste, angepasst an das Catppuccin Theme. |
+| **Terminal** | [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-beschleunigt, Ligaturen-Support, Image Preview. |
+| **Shell** | [Fish](https://fishshell.com/) | Mit [Starship](https://starship.rs/) Prompt, Autosuggestions und Syntax Highlighting. |
+| **Editor** | [Neovim](https://neovim.io/) | Vollständige IDE-Experience (LSP, Treesitter, Lazy.nvim). |
+| **Launcher** | [Rofi](https://github.com/lbonn/rofi) | App-Launcher (Wayland-Fork), Clipboard-History, Menüs. |
+| **Notifications** | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) | Benachrichtigungscenter mit "Do Not Disturb" Modus. |
+| **File Manager** | [Yazi](https://github.com/sxyazi/yazi) | Terminal-basiert, extrem schnell, mit Bildvorschau. |
+| **Monitoring** | [Btop](https://github.com/aristocratos/btop) | Ressourcen-Monitor im passenden Look. |
+| **Login Manager** | [SDDM](https://github.com/sddm/sddm) | Angepasstes Theme beim Systemstart. |
 
 > **Hinweis:** Nicht installierte Programme werden von `chezmoi` ignoriert oder können über `.chezmoiignore` ausgeschlossen werden.
 ## 🚀 Bootstrap (Installation auf neuem Rechner)
