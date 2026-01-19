@@ -42,23 +42,20 @@ Hier ist eine Übersicht der Kern-Komponenten, die durch dieses Setup konfigurie
 | **Monitoring** | [Btop](https://github.com/aristocratos/btop) | Ressourcen-Monitor im passenden Look. |
 | **Login Manager** | [SDDM](https://github.com/sddm/sddm) | Angepasstes Theme beim Systemstart. |
 
-> **Hinweis:** Nicht installierte Programme werden von `chezmoi` ignoriert oder können über `.chezmoiignore` ausgeschlossen werden.
-## 🚀 Bootstrap (Installation auf neuem Rechner)
+## ⚡ Installation & Setup
 
-Dieser Prozess installiert `chezmoi`, lädt die Configs herunter und **installiert automatisch fehlende Pakete** (wie Kitty, Yazi, Neovim) über ein Skript.
+Die Einrichtung ist auf einer frischen **CachyOS** Installation vollständig automatisiert.
 
-1.  **CachyOS installieren** und System updaten.
-2.  **Terminal öffnen** und folgenden Block ausführen:
+### One-Liner
+Öffne ein Terminal und führe folgende Befehle aus:
 
 ```bash
-# 1. Chezmoi installieren
-sudo pacman -S chezmoi
+# 1. System aktualisieren & Chezmoi installieren
+sudo pacman -Syu git chezmoi
 
 # 2. Dotfiles initialisieren und anwenden
-# Dies fragt nach dem Sudo-Passwort, um Programme via pacman zu installieren
-chezmoi init --apply DEIN_GITHUB_USERNAME
+chezmoi init --apply rootlogic7
 ```
-
 
 ## 🛠 Workflow & Abkürzungen
 
