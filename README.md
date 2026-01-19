@@ -72,38 +72,24 @@ Ich nutze Fish Abbreviations, um den Umgang mit `chezmoi` zu beschleunigen.
 
 
 
-## 🔄 Git Sync (Backup)
+## ⌨️ Keybindings
 
-In der `config.fish` ist eine Custom Function `cmcp` definiert, um Änderungen schnell zu sichern. Sie führt `git add`, `git commit` und `git push` in einem Schritt aus.
+Der `SUPER` Key (Windows-Taste) ist der Haupt-Modifier für fast alle Aktionen.
 
-**Nutzung:**
-
-```fish
-cmcp "Beschreibung der Änderung"
-```
-
-
-## 📂 Struktur
-
-* **Shell:** Fish (Konfiguration in `.config/fish`)
-* **Funktionen:** Eigene Fish-Funktionen liegen in `~/.config/fish/functions/` oder direkt in der `config.fish`.
-* **Skripte:** Installationsskripte (wie `run_once_...`) liegen im `chezmoi`-Source-Verzeichnis.
-* **Ignorierte Dateien:** Gesteuert über `.chezmoiignore`.
-
-
-
-## 💡 Tipps
-
-### Neue Programme hinzufügen
-1.  Programm installieren und lokal konfigurieren.
-2.  Config-Datei zu chezmoi hinzufügen:
-    ```fish
-    cm add ~/.config/program/configfile
-    ```
-3.  Falls gewünscht, das Paket in `run_once_install_packages.sh` ergänzen, damit es auf neuen Rechnern automatisch installiert wird.
-
-### Änderungen verwerfen
-Wenn du lokal etwas geändert hast, aber die Version aus dem Repo wiederherstellen willst:
-```fish
-chezmoi apply --force
-```
+| Taste | Aktion | Beschreibung |
+| :--- | :--- | :--- |
+| **Apps & System** | | |
+| `SUPER` + `ENTER` | **Terminal** | Öffnet Kitty |
+| `SUPER` + `SPACE` | **Launcher** | Öffnet Rofi (App Suche) |
+| `SUPER` + `Y` | **Files** | Öffnet Yazi File Manager |
+| `SUPER` + `B` | **Browser** | Öffnet Firefox |
+| `SUPER` + `C` | **Close** | Schließt das aktive Fenster |
+| `SUPER` + `V` | **Float** | Macht ein Fenster schwebend (Floating) |
+| `SUPER` + `M` | **Exit** | Loggt aus Hyprland aus |
+| **Navigation** | | |
+| `SUPER` + `Pfeiltasten` | **Fokus** | Wechselt den Fokus zwischen Fenstern |
+| `SUPER` + `1-0` | **Workspace** | Wechselt zu Workspace 1-10 |
+| `SUPER` + `SHIFT` + `1-0` | **Move** | Verschiebt Fenster auf Workspace 1-10 |
+| **Features** | | |
+| `SUPER` + `G` | **Game Mode** | Deaktiviert Animationen/Blur für Performance |
+| `SUPER` + `R` | **Resize** | Startet Resize-Modus (Pfeile zum Ändern, ESC zum Beenden) |
