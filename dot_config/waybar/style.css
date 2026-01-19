@@ -1,53 +1,88 @@
 @import "mocha.css";
 
 * {
-	font-family: Jetbrains Mono Nerd;
-    	color: @text;
+    font-family: Jetbrains Mono Nerd;
+    color: @rosewater;
 }
 
 /* --- MONITOR 1 (DP-1) --- */
 .bar_DP1_1 {
-    	background-color: @basealpha;
-    	border-bottom: 2px solid @rosewater;
+    background-color: @basealpha;
+	border-bottom: 2px solid @crust;
 }
 
-.bar_DP1_2 {
-    	background-color: @basealpha;
-    	border-top: 2px solid @rosewater;
+.bar_DP1_2 {   
+    background-color: @basealpha;
+	border-top: 2px solid @crust;
 }
 
 /* --- MONITOR 2 (HDMI-A-1) --- */
 .bar_HDMIA1_1 {
-    	background-color: @basealpha;
-    	border-bottom: 2px solid @rosewater;
+	background-color: @basealpha;
+    border-bottom: 2px solid @crust;
 }
 
 .bar_HDMIA1_2 {
-    	background-color: @basealpha;
-    	border-top: 2px solid @rosewater;
+    background-color: @basealpha;
+	border-top: 2px solid @crust;
 }
 
 /* --- GLOBALE ELEMENTE (Standard für Scale 1.0) --- */
+#workspaces {
+	background: @surface1;
+    border: 2px solid @mantle;
+    border-radius: 9px;
+    padding: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+	box-shadow: none;
+}
 #workspaces button {
-    	font-size: 11px;
-    	background: transparent;
-    	box-shadow: none;
-    	margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: normal;
+	background: transparent;
+	box-shadow: none;
 }
 
 #workspaces button.active {
-	border: 1px solid @rosewater;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #clock {
-	border-radius: 3px;
 	font-size: 14px;
 	background: @surface1;
-	padding-left: 5px;
-    	padding-right: 5px;
-	margin-right: 35px;
-	margin-bottom: 3px;
+    border: 2px solid @mantle;
+    border-radius: 9px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 12px;
 	box-shadow: none;
+}
+#hardware {
+	font-size: 14px;
+	background: @surface1;
+    border: 2px solid @mantle;
+    border-radius: 9px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 12px;
+	box-shadow: none;
+    
+}
+#cpu {
+    margin-left: 12px;
+}
+#memory {
+    margin-left: 24px;
 }
 
 /* * ------------------------------------------------------------------
@@ -56,17 +91,14 @@
  * ------------------------------------------------------------------ 
  */
 
-/* Vergrößerte Workspace Buttons für Monitor 2 (11px -> ~15px) */
+/* Vergrößerte Workspace Buttons für Monitor 2 (14px -> ~19px) */
 .bar_HDMIA1_1 #workspaces button {
-	font-size: 15px;
-	margin-bottom: 4px;
+	font-size: 19px;
+    margin-bottom: 4px;
 }
 
 /* Vergrößerte Uhr für Monitor 2 (14px -> ~19px) */
 .bar_HDMIA1_1 #clock {
 	font-size: 19px;
-	margin-right: 47px;  /* Margin (35px) muss auch skaliert werden */
-	padding-left: 7px;
-	padding-right: 7px;
-	margin-bottom: 4px;
+    margin-bottom: 4px;
 }

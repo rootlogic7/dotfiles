@@ -13,7 +13,7 @@ return {
       end
 
       configs.setup({
-          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "bash", "markdown", "toml", "json" },
+          ensure_installed = {"c", "lua", "vim", "vimdoc", "query", "bash", "markdown", "toml", "json", "jsonc", "hyprlang", "css", "fish", "ini", "diff", "regex" },
           highlight = { enable = true },
           indent = { enable = true },
       })

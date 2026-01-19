@@ -1,3 +1,4 @@
+// vim: ft=jsonc
 [
     {
         "name": "bar_DP1_1",
@@ -8,6 +9,7 @@
         "include": [
             "~/.config/waybar/default-modules.json"
         ],
+        "modules-left": ["group/hardware"],
         "modules-center": ["hyprland/workspaces"],
         "modules-right": ["clock"],
         "hyprland/workspaces": {

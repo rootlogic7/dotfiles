@@ -21,8 +21,13 @@ return {
                     -- Cursor und MatchParen in Rosewater (#f5e0dc)
                     Cursor = { bg = c.rosewater, fg = c.base },
                     MatchParen = { bg = c.rosewater, fg = c.base, style = { "bold" } },
-                    -- Optional: Rahmenfarbe anpassen
+                    -- Rahmenfarbe anpassen
                     FloatBorder = { fg = c.rosewater },
+                    -- Zeilennummern in Rosewater
+                    LineNr = { fg = c.overlay1 }, 
+            
+                    -- Die *aktuelle* Zeilennummer auch (oft fett für Fokus)
+                    CursorLineNr = { fg = c.rosewater, style = { "bold" } },
                 }
             end,
         },
