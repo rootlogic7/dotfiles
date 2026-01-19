@@ -93,3 +93,19 @@ Der `SUPER` Key (Windows-Taste) ist der Haupt-Modifier für fast alle Aktionen.
 | **Features** | | |
 | `SUPER` + `G` | **Game Mode** | Deaktiviert Animationen/Blur für Performance |
 | `SUPER` + `R` | **Resize** | Startet Resize-Modus (Pfeile zum Ändern, ESC zum Beenden) |
+
+## 💜 Credits & Thanks
+
+Ein großes Dankeschön an die Entwickler der Tools und die Community, die dieses Setup ermöglichen:
+
+* **[Hyprland](https://hyprland.org/)** - Für den beeindruckenden Wayland-Compositor.
+* **[CachyOS](https://cachyos.org/)** - Für die performance-optimierte Arch-Basis.
+* **[Catppuccin](https://github.com/catppuccin/catppuccin)** - Für die Farbpalette.
+* **[Chezmoi](https://www.chezmoi.io/)** - Für das geniale Dotfile-Management.
+
+## 📄 Lizenz
+
+Die Konfigurationsdateien und Skripte in diesem Repository stehen unter der **MIT License**.
+
+**Hinweis zu Assets:**
+Enthaltene Grafiken (wie Wallpaper oder Icons), die nicht von mir erstellt wurden, verbleiben im geistigen Eigentum ihrer jeweiligen Urheber. Dieses Repository dient primär der persönlichen Archivierung meiner Systemkonfiguration.
