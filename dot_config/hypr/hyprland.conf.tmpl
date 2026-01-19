@@ -1,76 +1,71 @@
 # -----------------------------------------------------------------------------
-# HYPRLAND CONFIG - TOKYO NIGHT STORM (MERGED USER CONFIG)
+# HYPRLAND CONFIG
 # -----------------------------------------------------------------------------
 
 ################
 ### MONITORS ###
 ################
-# Deine spezifischen Monitoreinstellungen
+# Szenario 1: Main PC (Personal + Desktop)
+{{- if and (eq .profile "personal") (eq .chassis "desktop") }}
 monitor=DP-1,3440x1440@100,0x0,1
 monitor=HDMI-A-1,1920x1080@60,3440x0,0.75
 
+# Szenario 2: Laptop (Personal + Laptop)
+{{- else if and (eq .profile "personal") (eq .chassis "laptop") }}
+monitor=eDP-1,preferred,auto,1 # Oder z.B. monitor=eDP-1,1920x1080@60,0x0,1
 
+# Szenario 3: Standard PC / Standard Laptop
+{{- else }}
+monitor=,preferred,auto,1
+{{- end }}
 ###################
 ### MY PROGRAMS ###
 ###################
 $terminal = kitty
-# "kitty yazi" startet Yazi direkt im Terminal
 $fileManager = kitty yazi 
-# Wofi ersetzt durch Rofi (wie besprochen)
 $menu = rofi -show drun 
 $browser = firefox
-
 
 #################
 ### AUTOSTART ###
 #################
-# swww (Wallpaper) und swaync (Notifications) statt hyprpaper/mako
 exec-once = waybar & swaync & hypridle
 exec-once = ~/.config/hypr/scripts/wallpaper.sh
 exec-once = $browser
-# Clipboard Manager (Empfohlen)
 exec-once = wl-paste --type text --watch cliphist store 
 exec-once = wl-paste --type image --watch cliphist store
-
 
 #############################
 ### ENVIRONMENT VARIABLES ###
 #############################
-# Cursor
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 
-# --- NVIDIA OPTIMIZATION (Wichtig für deine RTX 5060/4060) ---
+{{- if .has_nvidia }}
+# --- NVIDIA OPTIMIZATION ---
 env = LIBVA_DRIVER_NAME,nvidia
 env = XDG_SESSION_TYPE,wayland
 env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = NVD_BACKEND,direct
-
+{{- end }}
 
 #####################
 ### LOOK AND FEEL ###
 #####################
 general {
-    # Tokyo Night Design System
     gaps_in = 5
-    gaps_out = 10     # Etwas schmaler als deine 20, wirkt moderner
+    gaps_out = 10
     border_size = 2
-
-    # Tokyo Night Gradient Border (Blau -> Magenta)
     col.active_border = rgb(f5e0dc) rgb(f2cdcd) 45deg
-    # Inaktiv: Dunkles Grau/Blau
     col.inactive_border = rgb(181825)
-
     resize_on_border = false
     allow_tearing = false
     layout = dwindle
 }
 
 decoration {
-    rounding = 10     # Abgerundete Ecken für Modern Look
-
-    # Transparenz-Effekte (Glassmorphism)
+    rounding = 10
     active_opacity = 1.0
     inactive_opacity = 1.0
 
@@ -82,9 +77,9 @@ decoration {
     }
 
     blur {
-        enabled = true
-        size = 5      # Stärkerer Blur für Milchglas-Effekt
-        passes = 3    # Hohe Qualität
+        enabled = true 
+        size = 5
+        passes = 3
         vibrancy = 0.1696
         new_optimizations = true
         ignore_opacity = true 
@@ -93,10 +88,7 @@ decoration {
 
 animations {
     enabled = yes
-
-    # "Aesthetic" Animation Curves
     bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-    
     animation = windows, 1, 5, myBezier
     animation = windowsOut, 1, 7, default, popin 80%
     animation = border, 1, 10, default
@@ -115,29 +107,21 @@ master {
 }
 
 misc {
-    vrr = 1               # Aktiviert FreeSync/G-Sync (Wichtig für CachyOS!)
-    vfr = 1               # Variable Frame Rate (Spart Akku/GPU im Desktop-Betrieb)
+    vrr = 1
+    vfr = 1
     disable_hyprland_logo = true
     disable_splash_rendering = true
 }
-
 
 #############
 ### INPUT ###
 #############
 input {
     kb_layout = de
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
-
     follow_mouse = 1
     sensitivity = 0
-
-    accel_profile = flat  # Entfernt Mausbeschleunigung komplett (besser für Gaming)
+    accel_profile = flat
     force_no_accel = true
-
     touchpad {
         natural_scroll = false
     }
@@ -148,35 +132,24 @@ input {
 ###################
 $mainMod = SUPER
 
-# Apps
 bind = $mainMod, RETURN, exec, $terminal
-bind = $mainMod, Y, exec, $fileManager  # Dein Yazi Bind
-bind = $mainMod, SPACE, exec, $menu     # Rofi Launcher
-bind = $mainMod, B, exec, $browser      # Schnellzugriff Browser
-
-# System
+bind = $mainMod, Y, exec, $fileManager
+bind = $mainMod, SPACE, exec, $menu
+bind = $mainMod, B, exec, $browser
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit, 
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, P, pseudo, 
 bind = $mainMod, J, togglesplit,
-
-# --- GAME MODE TOGGLE ---
-# Schaltet Animationen/Blur aus für Performance
 bind = $mainMod, G, exec, ~/.config/hypr/scripts/gamemode.sh
 
-# Fokus (Pfeiltasten)
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
 bind = $mainMod, up, movefocus, u
 bind = $mainMod, down, movefocus, d
 
-# --- KEYBOARD ONLY: RESIZE SUBMAP ---
-# Drücke SUPER+R, um in den Resize Modus zu gehen.
-# Dann nutze HJKL (Vim-Style) oder Pfeile zum Ändern der Größe.
-# ESC zum Verlassen.
+# Resize Submap
 bind = $mainMod, R, submap, resize
-
 submap = resize
 binde = , right, resizeactive, 10 0
 binde = , left, resizeactive, -10 0
@@ -189,7 +162,7 @@ binde = , j, resizeactive, 0 10
 bind = , escape, submap, reset 
 submap = reset
 
-# Workspaces
+# Workspaces 1-10
 bind = $mainMod, 1, workspace, 1
 bind = $mainMod, 2, workspace, 2
 bind = $mainMod, 3, workspace, 3
@@ -213,11 +186,9 @@ bind = $mainMod SHIFT, 8, movetoworkspace, 8
 bind = $mainMod SHIFT, 9, movetoworkspace, 9
 bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-# Maus Interaktion
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
-# Media Keys
 bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
 bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -227,40 +198,26 @@ bindl = , XF86AudioNext, exec, playerctl next
 bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 
-
 ##############################
 ### WINDOWS AND WORKSPACES ###
 ##############################
-
-# --- WINDOW RULES V2 (Performance & Fixes) ---
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 windowrulev2 = suppressevent maximize, class:.*
-
-# Smart Gaps & Border
-# workspace = w[tv1], gapsout:0, gapsin:0
-# workspace = f[1], gapsout:0, gapsin:0
-# windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
-# windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
-
-# Float Rules (Konsistenz)
 windowrulev2 = float,class:(pavucontrol)
 windowrulev2 = float,class:(blueman-manager)
 windowrulev2 = size 800 600,class:(pavucontrol)
 windowrulev2 = center,class:(pavucontrol)
 
-# -----------------------------------------------------------------------------
-# WORKSPACE BINDINGS
-# -----------------------------------------------------------------------------
-# Zwingt Workspaces 1-5 auf DP-1 (Ultrawide)
+# Workspace Bindings NUR für den Main PC anwenden
+{{- if and (eq .profile "personal") (eq .chassis "desktop") }}
 workspace = 1, monitor:DP-1
 workspace = 2, monitor:DP-1
 workspace = 3, monitor:DP-1
 workspace = 4, monitor:DP-1
 workspace = 5, monitor:DP-1
-
-# Zwingt Workspaces 6-10 auf HDMI-A-1 (Side Monitor)
 workspace = 6, monitor:HDMI-A-1, gapsout:14, gapsin:7
 workspace = 7, monitor:HDMI-A-1, gapsout:14, gapsin:7
 workspace = 8, monitor:HDMI-A-1, gapsout:14, gapsin:7
 workspace = 9, monitor:HDMI-A-1, gapsout:14, gapsin:7
 workspace = 10, monitor:HDMI-A-1, gapsout:14, gapsin:7
+{{- end }}

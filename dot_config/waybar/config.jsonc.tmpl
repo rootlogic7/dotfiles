@@ -2,24 +2,29 @@
 [
     {
         "name": "bar_DP1_1",
+        {{- if and (eq .profile "personal") (eq .chassis "desktop") }}
         "output": ["DP-1"],
+        {{- end }}
         "layer": "top",
         "position": "top",
         "height": 34,
-        "include": [
-            "~/.config/waybar/default-modules.json"
-        ],
+        "spacing": 4,
         "modules-left": ["group/hardware"],
         "modules-center": ["hyprland/workspaces"],
         "modules-right": ["clock"],
+        "include": [
+            "~/.config/waybar/default-modules.json"
+        ],
         "hyprland/workspaces": {
             "format": "{icon}",
             "persistent-workspaces": {
                 "DP-1": [ 1, 2, 3, 4, 5 ]
             }
         }
-    },
-    {
+    }
+
+    {{- if and (eq .profile "personal") (eq .chassis "desktop") }}
+    ,{
         "name": "bar_DP1_2",
         "output": ["DP-1"],
         "layer": "top",
@@ -51,4 +56,5 @@
         "position": "bottom",
         "height": 39
     }
+    {{- end }}
 ]
