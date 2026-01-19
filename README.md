@@ -1,6 +1,13 @@
-# CachyOS Dotfiles
+# 🚀 CachyOS Hyprland Dotfiles
 
-Meine persönlichen Konfigurationsdateien, verwaltet mit [chezmoi](https://www.chezmoi.io/).
+![CachyOS](https://img.shields.io/badge/CachyOS-0D1117?style=for-the-badge&logo=archlinux&logoColor=2CA5E0)
+![Hyprland](https://img.shields.io/badge/Hyprland-0D1117?style=for-the-badge&logo=hyprland&logoColor=2CA5E0)
+![Chezmoi](https://img.shields.io/badge/Managed%20with-Chezmoi-0D1117?style=for-the-badge&logo=chezmoi&logoColor=white)
+
+Meine persönliche Systemkonfiguration für **CachyOS (Arch Linux)**.
+Dieses Repository wird mit [chezmoi](https://www.chezmoi.io/) verwaltet und ist darauf ausgelegt, eine konsistente, ästhetische und performante Umgebung auf verschiedenen Gerätetypen bereitzustellen – vom High-End Desktop mit Nvidia-Grafikkarte über Laptops.
+
+Der Fokus liegt auf **Hyprland** als Window Manager, gepaart mit einem modernen Tooling-Stack (Fish, Neovim, Kitty) und einem einheitlichen Look (Tokyo Night / Catppuccin).
 
 ## 🧩 Komponenten
 
