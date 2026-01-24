@@ -5,22 +5,22 @@
 ################
 ### MONITORS ###
 ################
-# Szenario 1: Main PC (Personal + Desktop)
-{{- if and (eq .profile "personal") (eq .chassis "desktop") }}
+{{- if eq .device_type "desktop" }}
+# --- DESKTOP PROFIL ---
 monitor=DP-1,3440x1440@100,0x0,1
 monitor=HDMI-A-1,1920x1080@60,3440x0,0.75
-
-# Szenario 2: Laptop (Personal + Laptop)
-{{- else if and (eq .profile "personal") (eq .chassis "laptop") }}
-monitor=eDP-1,preferred,auto,1 # Oder z.B. monitor=eDP-1,1920x1080@60,0x0,1
-
-# Szenario 3: Standard PC / Standard Laptop
+{{- else if eq .device_type "laptop" }}
+# --- LAPTOP PROFIL ---
+monitor=eDP-1,preferred,auto,1
 {{- else }}
+# --- DEFAULT PROFIL (Safe Mode / Pi / VM) ---
 monitor=,preferred,auto,1
 {{- end }}
+
 ###################
 ### MY PROGRAMS ###
 ###################
+# Default Config
 $terminal = kitty
 $fileManager = kitty yazi 
 $menu = rofi -show drun 
@@ -29,6 +29,7 @@ $browser = firefox
 #################
 ### AUTOSTART ###
 #################
+# Default Config
 exec-once = waybar & swaync & hypridle
 exec-once = ~/.config/hypr/scripts/wallpaper.sh
 exec-once = $browser
@@ -41,7 +42,7 @@ exec-once = wl-paste --type image --watch cliphist store
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 
-{{- if .has_nvidia }}
+{{- if eq .device_type "desktop" }}
 # --- NVIDIA OPTIMIZATION ---
 env = LIBVA_DRIVER_NAME,nvidia
 env = XDG_SESSION_TYPE,wayland
@@ -77,7 +78,7 @@ decoration {
     }
 
     blur {
-        enabled = true 
+        enabled = {{ if eq .device_type "desktop" }}true{{ else }}false{{ end }}
         size = 5
         passes = 3
         vibrancy = 0.1696
@@ -87,7 +88,7 @@ decoration {
 }
 
 animations {
-    enabled = yes
+    enabled = {{ if eq .device_type "desktop" }}yes{{ else }}no{{ end }}
     bezier = myBezier, 0.05, 0.9, 0.1, 1.05
     animation = windows, 1, 5, myBezier
     animation = windowsOut, 1, 7, default, popin 80%
@@ -138,23 +139,19 @@ bind = $mainMod, SPACE, exec, $menu
 bind = $mainMod, B, exec, $browser
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit, 
-bind = $mainMod, V, togglefloating,
-bind = $mainMod, P, pseudo, 
-bind = $mainMod, J, togglesplit,
+bind = $mainMod, I, togglefloating,
+bind = $mainMod, O, pseudo, 
+bind = $mainMod, P, togglesplit,
 bind = $mainMod, G, exec, ~/.config/hypr/scripts/gamemode.sh
 
-bind = $mainMod, left, movefocus, l
-bind = $mainMod, right, movefocus, r
-bind = $mainMod, up, movefocus, u
-bind = $mainMod, down, movefocus, d
+bind = $mainMod, H, movefocus, l
+bind = $mainMod, J, movefocus, d
+bind = $mainMod, K, movefocus, u
+bind = $mainMod, L, movefocus, r
 
 # Resize Submap
 bind = $mainMod, R, submap, resize
 submap = resize
-binde = , right, resizeactive, 10 0
-binde = , left, resizeactive, -10 0
-binde = , up, resizeactive, 0 -10
-binde = , down, resizeactive, 0 10
 binde = , l, resizeactive, 10 0
 binde = , h, resizeactive, -10 0
 binde = , k, resizeactive, 0 -10
@@ -201,15 +198,15 @@ bindl = , XF86AudioPlay, exec, playerctl play-pause
 ##############################
 ### WINDOWS AND WORKSPACES ###
 ##############################
-windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
-windowrulev2 = suppressevent maximize, class:.*
-windowrulev2 = float,class:(pavucontrol)
-windowrulev2 = float,class:(blueman-manager)
-windowrulev2 = size 800 600,class:(pavucontrol)
-windowrulev2 = center,class:(pavucontrol)
+windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+windowrule = suppressevent maximize, class:.*
+windowrule = float,class:^(pavucontrol)$
+windowrule = float,class:^(blueman-manager)$
+windowrule = size 800 600,class:^(pavucontrol)$
+windowrule = center,class:^(pavucontro)$
 
 # Workspace Bindings NUR für den Main PC anwenden
-{{- if and (eq .profile "personal") (eq .chassis "desktop") }}
+{{- if eq .device_type "desktop" }}
 workspace = 1, monitor:DP-1
 workspace = 2, monitor:DP-1
 workspace = 3, monitor:DP-1

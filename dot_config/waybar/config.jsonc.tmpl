@@ -2,7 +2,7 @@
 [
     {
         "name": "bar_DP1_1",
-        {{- if and (eq .profile "personal") (eq .chassis "desktop") }}
+        {{- if eq .device_type "desktop" }}
         "output": ["DP-1"],
         {{- end }}
         "layer": "top",
@@ -23,7 +23,7 @@
         }
     }
 
-    {{- if and (eq .profile "personal") (eq .chassis "desktop") }}
+    {{- if eq .device_type "desktop" }}
     ,{
         "name": "bar_DP1_2",
         "output": ["DP-1"],

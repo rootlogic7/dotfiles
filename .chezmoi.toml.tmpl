@@ -1,17 +1,11 @@
-{{- /* 1. Chassis: Laptop oder Desktop? */ -}}
-{{- $chassis := promptString "Chassis Type (desktop/laptop)" "desktop" -}}
-
-{{- /* 2. GPU: Nvidia vorhanden? */ -}}
-{{- $has_nvidia := promptBool "Has Nvidia GPU" true -}}
-
-{{- /* 3. Profile: 'personal' oder 'standard' */ -}}
-{{- $profile := promptString "Config Profile (personal/standard)" "standard" -}}
-
-{{- /* 4. Performance */ -}}
-{{- $performance := promptString "Performance Level (high/low)" "high" -}}
+{{- /* Welches Profil soll geladen werden? */ -}}
+{{- $type := promptString "Device Type (desktop/laptop/default)" "default" -}}
 
 [data]
-    chassis = {{ $chassis | quote }}
-    has_nvidia = {{ $has_nvidia }}
-    profile = {{ $profile | quote }}
-    is_low_spec = {{ eq $performance "low" }}
+    device_type = {{ $type | quote }}
+
+    {{- /* Desktop = Dein Main-PC (Nvidia, Dual Monitor) */}}
+    has_nvidia = {{ eq $type "desktop" }}
+    
+    {{- /* Laptop = Dein mobiler PC (Batterie, Backlight) */}}
+    is_laptop = {{ eq $type "laptop" }}
