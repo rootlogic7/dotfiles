@@ -198,13 +198,41 @@ bindl = , XF86AudioPlay, exec, playerctl play-pause
 ##############################
 ### WINDOWS AND WORKSPACES ###
 ##############################
-windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
-windowrule = suppressevent maximize, class:.*
-windowrule = float,class:^(pavucontrol)$
-windowrule = float,class:^(blueman-manager)$
-windowrule = size 800 600,class:^(pavucontrol)$
-windowrule = center,class:^(pavucontro)$
+# Fix für XWayland "Geister-Fenster" (Pixel-große Fenster, die Fokus stehlen)
+windowrule {
+    name = xwayland_ghost_fix
+    match:class = ^$
+    match:title = ^$
+    match:xwayland = true
+    match:float = true
+    match:fullscreen = false
+    match:pin = false
+    no_focus = true
+}
 
+# Ignoriert Maximize-Events (oft nützlich für Java/Qt Apps)
+windowrule {
+    name = suppress_maximize
+    match:class = .*
+    suppress_event = maximize
+}
+
+# Pavucontrol: Floating, Größe und zentriert
+# (Alle Regeln für eine App können jetzt in einen Block!)
+windowrule {
+    name = pavucontrol_rules
+    match:class = pavucontrol
+    float = true
+    size = 800 600
+    center = true
+}
+
+# Blueman Manager: Floating
+windowrule {
+    name = blueman_rules
+    match:class = blueman-manager
+    float = true
+}
 # Workspace Bindings NUR für den Main PC anwenden
 {{- if eq .device_type "desktop" }}
 workspace = 1, monitor:DP-1
